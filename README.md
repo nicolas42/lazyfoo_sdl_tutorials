@@ -1,6 +1,20 @@
 http://lazyfoo.net/tutorials/SDL/index.php
 
-Notes - Making these things in macos, the joys therein
+Notes - Making Things in Macos, the joys therein (version 2)
+
+New plan.  Just include the headers and the dynamic link libraries for the necessary SDL libraries
+in the source. Woo. It seems like the only file which is necessary is the dylib and I haven't been able to link statically against the supplied .a files.  If you run otool -L libSDL2.dylib there's a long list of system frameworks that it depends on so I guess it needs to be dynamically linked.  The system frameworks should be there anyway on a mac so there wouldn't be any installation requirements.
+
+Compile and run a file from this directory like this.
+
+    clang++ 04_key_presses/04_key_presses.cpp -Iinclude lib/libSDL2.dylib ; ./a.out
+
+
+The libraries get installed to a lot of places it seems. /usr/local/lib and usr/local/include seem to be pretty good places to get them.  They're also hidden away in /Libraries/Frameworks if you get in there and seem to be symlinked? in /usr/local/opt
+
+-----------------------------------
+
+Notes - Making Things in Macos, the joys therein
 
 Got the SDL2 and SDL2_image frameworks and put them into /Libraries/Frameworks then restarted terminal.  I also did a lot of other things before I did this so they might have done something too unfortunately.
 
