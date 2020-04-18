@@ -1,0 +1,1 @@
+g++ 03_event_driven_programming\03_event_driven_programming.cpp -Iinclude -Llib -w -Wl,-subsystem,windows -lmingw32 -lSDL2main -lSDL2
