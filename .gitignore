@@ -1,4 +1,7 @@
 # include/*
 # lib/*
 a.out
+*.exe
+*.pdf
+*.obj
 

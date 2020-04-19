@@ -1,0 +1,23 @@
+
+
+"c:\program files (x86)\Microsoft Visual Studio\2019\Community\vc\Auxiliary\Build\vcvarsall.bat" x64
+
+
+clang++ 03_event_driven_programming\03_event_driven_programming.cpp   -Iinclude"  lib\SDL2.dll lib\SDL2main.lib 
+
+
+g++ 04_key_presses\04_key_presses.cpp -Iinclude lib\SDL2.dll lib\SDL2main.lib 
+
+
+powershell
+
+"c:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvarsall.bat" x64
+
+cl 03_event_driven_programming\03_event_driven_programming.cpp   -Iinclude  lib\SDL2.dll lib\SDL2main.lib 
+
+clang++ 03_event_driven_programming\03_event_driven_programming.cpp   -Iinclude  lib\SDL2.dll lib\SDL2main.lib 
+
+"c:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvarsall.bat" x64
+
+cl 03_event_driven_programming\03_event_driven_programming.cpp   
+/link
