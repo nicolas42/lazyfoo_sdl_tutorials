@@ -1,6 +1,6 @@
 http://lazyfoo.net/tutorials/SDL/index.php
 
-Notes - Making Things in Macos, the joys therein (version 2)
+# Notes - Making Things in Macos, the joys therein (version 2)
 
 New plan.  Just include the headers and the dynamic link libraries for the necessary SDL libraries
 in the source. Woo. It seems like the only file which is necessary is the dylib and I haven't been able to link statically against the supplied .a files.  If you run otool -L libSDL2.dylib there's a long list of system frameworks that it depends on so I guess it needs to be dynamically linked.  The system frameworks should be there anyway on a mac so there wouldn't be any installation requirements.
@@ -14,7 +14,7 @@ The libraries get installed to a lot of places it seems. /usr/local/lib and usr/
 
 
 
-Notes - Making stuff in Windows - the glorious joys of joy
+# Notes - Making stuff in Windows - the glorious joys of joy
 
 Alright in windows 10 I've got mingw (which takes a bloody long time to install) then I have downloaded the SDL2 files to a folder with an include path and a library path.  We set those in the compilation flags and we also
 
@@ -29,7 +29,7 @@ Windows is also slow to boot up the program the first time perhaps because of th
 
 -----------------------------------
 
-Notes - Making Things in Macos, the joys therein
+# Notes - Making Things in Macos, the joys therein
 
 Got the SDL2 and SDL2_image frameworks and put them into /Libraries/Frameworks then restarted terminal.  I also did a lot of other things before I did this so they might have done something too unfortunately.
 
