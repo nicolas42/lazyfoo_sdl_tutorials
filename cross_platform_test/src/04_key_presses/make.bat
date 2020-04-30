@@ -1,0 +1,1 @@
+g++ 04_key_presses\04_key_presses.cpp -Iinclude -Llib -w -Wl,-subsystem,windows -lmingw32 -lSDL2main -lSDL2
