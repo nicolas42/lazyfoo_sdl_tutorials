@@ -1,0 +1,14 @@
+{
+	"size": "{800, 620}",
+	"ace-required": true,
+	"tagline": "Cable-Free Audio Routing For Mac",
+	"css": "Welcome/global/css/style.css",
+	"tour": [
+		"Welcome/tour/tour1.html",
+		"Welcome/tour/tour2.html",
+		"Welcome/tour/tour3.html",
+		"Welcome/tour/tour4.html",
+	],
+	"tour-counter-active-color": [0.165, 0.696, 0.686, 1],
+	"tour-counter-inactive-color": [0.665, 0.696, 0.706, 1]
+}

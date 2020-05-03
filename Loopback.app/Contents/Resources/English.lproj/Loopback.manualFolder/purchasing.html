@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Purchasing Loopback</title>
+<link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+	
+	
+	<div id="header">
+		<div id="help-header">
+			<img src="images/lb-helpheader.png" alt="Loopback Help" style="width: 440px; height: 76px;" />
+		</div>
+	</div>
+	<div id="nav">
+					<a href="index.html" class="sidebarAnchor" >Introduction</a>
+			<a href="devicebasics.html" class="sidebarAnchor" >Device Basics</a>
+			<div class="nonlinkedParent"><h3>Device Configuration</h3>
+			<a href="sources.html" class="sidebarAnchor" >Sources</a>
+			<a href="outputchannels.html" class="sidebarAnchor" >Output Channels</a>
+			<a href="monitors.html" class="sidebarAnchor" >Monitors</a>
+</div>			<a href="usingvirtualdevices.html" class="sidebarAnchor" >Using Virtual Devices</a>
+			<a href="passthru.html" class="sidebarAnchor" >Notes on Pass-Thru</a>
+			<a href="preferences.html" class="sidebarAnchor" >Preferences</a>
+			<a href="purchasing.html" class="sidebarAnchor" >Purchasing</a>
+			<div class="nonlinkedParent"><h3>Etcetera</h3>
+			<a href="etc-installinguninstalling.html" class="sidebarAnchor" >Installing &amp; Uninstalling</a>
+			<a href="etc-userlicense.html" class="sidebarAnchor" >User License</a>
+			<a href="etc-acknowledgements.html" class="sidebarAnchor" >Acknowledgements</a>
+</div>	</div>
+
+	<!-- Save position of the 'nav' div -->
+	<script>
+	if(typeof(Storage) !== 'undefined') 
+	{
+		document.addEventListener('DOMContentLoaded', function() 
+		{
+			var pos = +localStorage.getItem('nav-y-pos');
+			if (pos)
+				document.getElementById('nav').scrollTop = pos;
+		});
+
+		document.getElementById('nav').addEventListener('scroll', function(e) 
+		{
+			var pos = document.getElementById('nav').scrollTop;
+			localStorage.setItem('nav-y-pos', pos);
+		});
+	}
+	</script>
+
+	
+	
+	<div class="main">
+		<div class="content">
+	       	        <h1>Purchasing Loopback</h1>
+        
+        <p><b>Quick Link</b>: Visit our <a href="https://rogueamoeba.com/store">online store</a> to buy a license key for Loopback.
+
+		<h3>Why should I buy Loopback?</h3>
+		<p>Put simply, you should buy Loopback because it isn't free. We provide a free trial, so you can test out the program and all its features before you buy it. It's like test driving a car, for as long as it takes you to decide.</p> 
+
+		<p>In trial mode, all of Loopback's features are available to sample, but it won't work for full-time use. During the trial, the quality of audio passing through Loopback's virtual audio devices will be degraded after twenty minutes.
+		
+		<p>If you use Loopback and find you like it, please purchase a license key - support the software you use and love!</p>
+
+		<p>To purchase your license key, just visit <a href="https://rogueamoeba.com/store/">https://rogueamoeba.com/store/</a>.</p>		
+
+
+		<h3>What about upgrades?</h3>
+	
+		<p>If you purchased a license for Loopback before September 1st, 2018 (your license key will start with <tt>CIRC-</tt>), you're eligible for a discounted upgrade to version 2.</p>
+		
+		<p>Read about <a href="https://rogueamoeba.com/loopback/whatsnew.php">what's new in Loopback 2</a> on our site, then <a href="https://rogueamoeba.com/loopback/buy.php?type=upgrade">purchase a heavily discounted upgrade</a>.</p>	
+
+		<p><strong>Note:</strong> If your license key starts with <tt>VADS-</tt>, you already own Loopback 2 - enjoy!</p>		
+		
+				
+		<h2>After Purchase</h2>
+
+		<h3>How do I unlock the full version?</h3>
+		<p>The download of Loopback from our site contains both a free trial of the software and the full version. To unlock the full, unlimited version, you just need a valid license key. When you purchase through our store, you'll immediately receive a license key in your browser. It will also be sent to you via email. Simply enter this key into Loopback to unlock it.</p>
+
+		<h3>What's your upgrade policy?</h3>
+		<p>While we don't have a hard and fast upgrade policy, our philosophy regarding paid upgrades is simple: We try to do what's right for you and what's right for us. We've got a great track record, with many years of very satisfied customers.</p>
+		
+		<p>For more details on free updates and paid upgrades, please see <a href="https://rogueamoeba.com/support/knowledgebase/?showArticle=MiscUpgradePolicy">this page</a>.</p>
+
+		<h3>What's your refund policy?</h3>
+		<p>All Rogue Amoeba products are available to try before you buy. We believe that no customer should have to buy software in order to find out how well it works. Our software can be fully evaluated with no limitations in capabilities, prior to purchase. Customers are <b>strongly encouraged</b> to take advantage of these trials prior to purchase. You may also seek any needed technical support from us - we answer support emails rapidly and responsively for current and potential customers alike.</p>
+
+		<p>If you would like a refund, please contact <a href="mailto: hello@rogueamoeba.com">hello@rogueamoeba.com</a> within 14 days of your purchase. Because we cannot recover the license key that was sold, refunds are issued on a case-by-case basis.</p>
+    
+		</div>
+	</div><!-- main-->
+	
+
+
+		<div id="footer">
+		<div id="footertext">Have questions the manual doesn't answer? Visit our <a href="https://rogueamoeba.com/support/">Support Center</a>.
+		</div>	
+	</div>
+	
+	<script type="text/javascript">
+		var allAnchors = document.getElementsByClassName('sidebarAnchor');
+	
+	    var documentFileName = window.location.pathname.substr(window.location.pathname.lastIndexOf('/') + 1);
+	
+	    for( idx=0; idx < allAnchors.length; idx++ )
+	    {
+	        var anchorEl = allAnchors[idx];
+	        var anchorFileName = anchorEl.href.substr(anchorEl.href.lastIndexOf('/') + 1);
+	
+	        if( anchorFileName == documentFileName )
+	            anchorEl.classList.add( 'selected' );
+	    }
+	</script>
+	
+	
+	
+</body>
+</html>

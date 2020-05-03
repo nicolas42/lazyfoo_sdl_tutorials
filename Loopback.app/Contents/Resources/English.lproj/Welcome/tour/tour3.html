@@ -1,0 +1,64 @@
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="../global/css/style.css">
+	<script type="text/javascript" src="../global/jquery-3.3.1.slim.min.js"></script>
+</head>
+
+
+<body style="background: #f2f2f2;">
+
+<!-- Placeholder for positioning buttons since the content on this page is all absolute-->
+<div style="height: 550px;"></div> 
+
+<div class="slide" id="slide-a">
+	<h1 class="quickstart-title">Map Individual Channels</h1>
+	
+	<div class="left-text" style="top: 380px;">
+		<p>Loopback will automatically map your audio to the virtual device's output channels. This default configuration will often provide all you need.</p>
+	</div>
+
+	<div class="right-text" style="top: 380px;">
+		<p>Of course, custom configurations are possible, and you can add optional monitoring devices too. Channels can be reconfigured just by rewiring the layout. It's fast and fun!</p>
+	</div>	
+	
+</div>
+
+<img class="slide" id="slide-b" src="../global/images/quickstart-3b.png" srcset="../global/images/quickstart-3b@2x.png 2x" alt="" width="800" height="550"/>
+
+<img class="slide" id="slide-c" src="../global/images/quickstart-3c.png" srcset="../global/images/quickstart-3c@2x.png 2x" alt="" width="800" height="550"/>
+
+<img class="slide" id="slide-d" src="../global/images/quickstart-3d.png" srcset="../global/images/quickstart-3d@2x.png 2x" alt="" width="800" height="550"/>
+
+<img class="slide" id="slide-e" src="../global/images/quickstart-3e.png" srcset="../global/images/quickstart-3e@2x.png 2x" alt="" width="800" height="550"/>
+
+<div id="flash" style="background: #f2f2f2;"><br></div>
+
+</body>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	setTimeout(function (){
+		$('#slide-a').addClass('visible');
+		$('#flash').addClass('hidden');
+	}, 0);
+	
+	setTimeout(function (){
+		$('#slide-b').addClass('visible');
+	}, 150);
+	
+	setTimeout(function (){
+		$('#slide-c').addClass('visible');
+	}, 300);
+	
+		setTimeout(function (){
+		$('#slide-d').addClass('visible');
+	}, 450);
+	
+		setTimeout(function (){
+		$('#slide-e').addClass('visible');
+	}, 600);
+	
+});
+</script>
+
+</html>

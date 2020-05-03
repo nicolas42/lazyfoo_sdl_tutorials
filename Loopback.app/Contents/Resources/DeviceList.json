@@ -1,0 +1,290 @@
+
+{
+	// ----------------------
+	// MARK: Device list pane
+	
+	DeviceListPane:
+	{
+		nsClass: GXDrawView,
+		gxConsumeMouseClick: true,
+		gxWantsLayer: true,
+		gxLayout: [
+			"V:|[header(38)]-0-[topDivider]-0-[scroller]-0-[bottomDivider]-0-[bottomBar(42)]|",
+		],
+		gxChildViews:
+		{
+			header:
+			{
+				+: HeaderView.left,
+				gxLayout: [ "H:|-8-[self]|" ],
+				gxDefaultValue: "Devices",
+				gxForePainter:
+				{
+					+: LabelFore.darkTextColor.bold.size14,
+					gxIcon: "icon.device",
+					gxIconSpacing: 5,
+					gxVAlign: .47
+				}
+			},
+			topDivider:
+			{
+				nsClass: GXDrawView,
+				gxLayout: [ "H:|[self]|", "V:[self(1)]" ],
+				gxBackPainter: FillBack.deviceListItemDividerColor
+			},
+			scroller:
+			{
+				nsClass: LBGXScrollView,
+				axIsIgnored: true,
+				gxAutohidesScrollers: true,
+				gxBackColor: "name:deviceListBg",
+				gxConsumeMouseClick: true,
+				gxVScrollbarWidth: 13,
+				gxVScrollbar: ScrollBarView,		// vertical scroller only
+				gxLayout: [ "H:|[self]|" ],
+				gxDocumentView:
+				{
+					nsClass: GXListView,
+					axTitle: "Devices",
+					axHelp: "List of all virtual devices",
+					axIsIgnored: false,
+					gxViewName: "deviceListView",	// can't derive name from dict
+					gxLayout: "H:|[self]|"
+				}
+			},
+			bottomDivider:
+			{
+				nsClass: GXDrawView,
+				gxLayout: [ "H:|[self]|", "V:[self(1)]" ],
+				gxBackPainter: FillBack.deviceListDividerColor
+			},
+			bottomBar:
+			{
+				+: DeviceListBottomBar
+			}
+		}
+	},
+	
+	// ---------------------------
+	// MARK: Device list item view
+	
+	DeviceListItemView:
+	{
+		nsClass: LBDeviceListItemView,
+		axIsIgnored: false,
+		axTitleKeyPath: name,
+		axRoleDescription: "Device",
+		axHelp: "Currently selected virtual device, now available in the device editor",
+		gxWantsLayer: true,
+		gxCanDrawSubviewsIntoLayer: true,	// allow subviews to composite into parent layer (better for text drawing)
+		gxBackPainter:
+		{
+			+: FillBack.deviceListBgColor,
+			selected:
+			{
+				gxFillColor: "name:deviceListBgSel",
+				focused: { gxFillColor: "name:deviceListBgSelFocused" }
+			}
+		},
+		gxIntrinsicHeight: 96,				// setting intrinsic height helps the list view out
+		multipleSelection: false,			// flags for the overweight GXSettingsView
+		selectable: true,					// flags for the overweight GXSettingsView
+		drawsSelected: true,				// flags for the overweight GXSettingsView
+		gxDrawsFocused: true,
+		gxLayout: [
+			"H:[onoff]-9-|",
+			"H:|-9-[name(162)]",
+			"H:|-9-[icon(32)]-8-[tagLine]-8-[levelMeter]",
+			"H:|-10-[volumeIndicator(16)]-8-[volumeSlider]-2-[volumeReadout(32)]-8-|&alignCenterY",
+			"V:[self(96)]",
+			"V:|-8-[onoff]",
+			"V:|-6-[name(18)]-6-[icon(32)]-8-[volumeIndicator(16)]",
+			"V:|-30-[tagLine(28)]",
+		],
+		gxChildViews:
+		{
+			icon:
+			{
+				+: ImageView,
+				gxValueKeyPath: "icon",
+			},
+			name:
+			{
+				+: LabelView.left.bold.size13,
+				gxDisableOnKey: "disabled",
+				gxDrawsFocused: true,
+				gxIgnoreMouseClick: true,
+				gxForePainter:
+				{
+					+: LabelFore,
+					gxFontColor: "name:darkText",
+					disabled: { gxFontColor: "name:darkTextDisabled" }
+				},
+				gxValueKeyPath: "name",
+			},
+			onoff:
+			{
+				+: OnOffSwitchView,
+				axTitle: "Device Switch",
+				axHelp: "Turn this device on or off"
+			},
+			tagLine:
+			{
+				+: LabelView.left.top.size11.wrap,
+				gxDisableOnKey: "disabled",
+				gxDrawsFocused: true,
+				gxIgnoreMouseClick: true,
+				gxForePainter:
+				{
+					+: LabelFore,
+					gxFontColor: "name:darkText",
+					disabled: { gxFontColor: "name:darkTextDisabled" },
+				},
+				gxValueKeyPath: "tagLine"
+			},
+			volumeIndicator:
+			{
+				+: VolumeIndicatorView,
+				axHelp: "Mutes this device",
+				lbDisableUIOnKey: "disabled"
+			},
+			volumeSlider:
+			{
+				+: VolumeSliderView,
+				axHelp: "Adjusts the device volume",
+				gxActiveOnKey: selected,
+				gxWantsLayer: true,
+				lbDisableUIOnKey: "disabled"
+			},
+			volumeReadout:
+			{
+				+: LabelView.right.size11,
+				gxDisableOnKey: "disabled",
+				gxDrawsFocused: true,
+				gxIgnoreMouseClick: true,
+				gxForePainter:
+				{
+					+: LabelFore,
+					gxFontColor: "name:darkText",
+					disabled: { gxFontColor: "name:darkTextDisabled" },
+				},
+				gxValueKeyPath: "volumeForReadout"
+			},
+			activeMeter:
+			{
+				+: ActiveMeter,
+				nsClass: LBGXActiveMeter,
+				fadeout: true,
+				gxLayout: [ "H:[self(40)]-10-|", "V:|-33-[self(8)]" ],
+				gxAnimateOnKey: "enabledForActiveMeter",
+				gxRootLayer:
+				{
+					+: RootLayer,
+					nsClass: GXDrawLayer,
+					drawsSelected: true,
+					gxStylesKeyPath: "meterStyles"
+				},
+				gxActiveLayer:
+				{
+					+: PeakLayer,
+					nsClass: GXMeterLayer,
+					drawsSelected: true,
+					gxStylesKeyPath: "meterStyles"
+				}
+			},
+			levelMeter:
+			{
+				+: LevelMeter,
+				nsClass: LBGXLevelMeter,
+				gxLayout: [ "H:[self(40)]-10-|", "V:|-33-[self(8)]" ],
+				gxAnimateOnKey: "enabledForLevelMeter",
+				gxRootLayer:
+				{
+					+: RootLayer,
+					nsClass: GXDrawLayer,
+					drawsSelected: true,
+					gxStylesKeyPath: "meterStyles"
+				},
+				gxPeakLayer:
+				{
+					+: PeakLayer,
+					nsClass: GXMeterLayer,
+					drawsSelected: true,
+					gxStylesKeyPath: "meterStyles"
+				}
+			},
+			divider:
+			{
+				nsClass: GXDrawView,
+				gxLayout: [
+					"V:[self(1)]|",  // one pixel high, pinned to bottom
+					"H:|[self]|",    // fill parent width
+				],
+				gxBackPainter: FillBack.deviceListItemDividerColor
+			}
+		}
+	},
+	
+	// ----------------------------
+	// MARK: Device list bottom bar
+	
+	DeviceListBottomBar:
+	{
+		nsClass: GXDrawView,
+		gxBackPainter: FillBack.deviceListBgColor,
+		gxLayout: [
+			"H:|[self]|",
+			"H:|-10-[newDevice(130)]-(>=0)-[deleteDevice(20)]-10-|",
+			"V:|-11-[deleteDevice]",
+			"V:|-11-[newDevice]",
+		],
+		gxChildViews:
+		{
+			newDevice:
+			{
+				nsClass: GXButtonView,
+				axHelp: "Creates a new virtual device",
+				gxForePainter:
+				{
+					+: LabelFore.size12,
+					gxEdgeInsets: "2, 0, 2, 0",
+					gxFontColor: "name:darkText",
+					gxIcon: "icon.add",
+					gxIconSpacing: 5,
+					gxIconTintMask: "icon.add.mask",
+					disabled:
+					{
+						gxFontColor: "name:lightText",
+						gxIconTintColor: "name:buttonDisableTint"
+					},
+					pressed:
+					{
+						gxFontColor: "name:darkText",
+						gxIconTintColor: "name:black"
+					}
+				},
+				gxIntrinsicHeight: 22,
+				gxTitle: "New Virtual Device",
+				gxValueKeyPath: newDeviceButton
+			},
+			deleteDevice:
+			{
+				nsClass: GXButtonView,
+				axHelp: "Deletes the selected virtual device",
+				axTitle: "Delete Virtual Device",
+				gxForePainter:
+				{
+					+: LabelFore.size12,
+					gxEdgeInsets: "2, 0, 2, 0",
+					gxIcon: "icon.delete.device",
+					gxIconSpacing: 0,
+					gxIconTintMask: "icon.delete.device.mask",
+					disabled: { gxIconTintColor: "name:buttonDisableTint" },
+					pressed: { gxIconTintColor: "name:black" }
+				},
+				gxIntrinsicHeight: 22,
+				gxValueKeyPath: deleteDeviceButton
+			}
+		}
+	}
+}

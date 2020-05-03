@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Monitors</title>
+	<link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+	
+	
+	<div id="header">
+		<div id="help-header">
+			<img src="images/lb-helpheader.png" alt="Loopback Help" style="width: 440px; height: 76px;" />
+		</div>
+	</div>
+	<div id="nav">
+					<a href="index.html" class="sidebarAnchor" >Introduction</a>
+			<a href="devicebasics.html" class="sidebarAnchor" >Device Basics</a>
+			<div class="nonlinkedParent"><h3>Device Configuration</h3>
+			<a href="sources.html" class="sidebarAnchor" >Sources</a>
+			<a href="outputchannels.html" class="sidebarAnchor" >Output Channels</a>
+			<a href="monitors.html" class="sidebarAnchor" >Monitors</a>
+</div>			<a href="usingvirtualdevices.html" class="sidebarAnchor" >Using Virtual Devices</a>
+			<a href="passthru.html" class="sidebarAnchor" >Notes on Pass-Thru</a>
+			<a href="preferences.html" class="sidebarAnchor" >Preferences</a>
+			<a href="purchasing.html" class="sidebarAnchor" >Purchasing</a>
+			<div class="nonlinkedParent"><h3>Etcetera</h3>
+			<a href="etc-installinguninstalling.html" class="sidebarAnchor" >Installing &amp; Uninstalling</a>
+			<a href="etc-userlicense.html" class="sidebarAnchor" >User License</a>
+			<a href="etc-acknowledgements.html" class="sidebarAnchor" >Acknowledgements</a>
+</div>	</div>
+
+	<!-- Save position of the 'nav' div -->
+	<script>
+	if(typeof(Storage) !== 'undefined') 
+	{
+		document.addEventListener('DOMContentLoaded', function() 
+		{
+			var pos = +localStorage.getItem('nav-y-pos');
+			if (pos)
+				document.getElementById('nav').scrollTop = pos;
+		});
+
+		document.getElementById('nav').addEventListener('scroll', function(e) 
+		{
+			var pos = document.getElementById('nav').scrollTop;
+			localStorage.setItem('nav-y-pos', pos);
+		});
+	}
+	</script>
+
+	
+	
+	<div class="main">
+		<div class="content">   
+    	<h1>Configuring Monitors</h1>
+      
+      
+      		
+		<h2>Monitors</h2>
+		
+		<p>Using the Monitors column, you can optionally direct audio from your virtual device to play through a secondary audio device. This can be useful for monitoring how your virtual device will sound to others.</p>
+		
+		<p>By default, Loopback's virtual audio devices do not include any monitors. To add a monitor to a virtual device, click the <span class="uielement">(+)</span> button at the top of the <span class="uielement">Monitors</span> column, then select an audio device.</p>
+		
+		<p>Below, you can see that we've added a monitor called “Built-in Output”. As a result, audio from the virtual device will now be heard through the monitor device.</p>
+				
+		<p class="centeredimage">
+			<img src="images/monitors-01.png" alt="" width="240" height="195" style="border-radius: 8px;">
+			<br>A monitor device in its default configuration
+		</p>	
+		
+
+		<h2>Manually Adjusting the Monitoring Configuration</h2>
+		
+		<p>When a new monitor is added, Loopback will automatically map output channels to it, on a one-to-one basis, as possible. Any audio produced by the source will then be included in the virtual audio device’s output.</p>    		
+		
+		<p>You can also modify this wiring manually, using the same techniques described on the <a href="outputchannels.html">Output Channels</a> page.		
+		
+		<p class="centeredimage">
+			<img src="images/monitors-02.png" alt="" width="540" height="335" style="border-radius: 8px;">
+			<br>Manually configured monitors
+		</p>
+		
+	
+
+		<h2>Additional Settings and Notes</h2>
+
+		<h3>On/Off Toggle</h3>
+
+		<p class="centeredimage">
+			<img src="images/monitors-03.png" alt="" width="240" height="330" style="border-radius: 8px;">
+			<br>The “Built-in Output” monitor is on.
+			<br>The “USB Output” monitor is off.</p>
+
+		<p>Using the <span class="uielement">On/Off</span> switch, you can toggle an individual monitoring device on or off, adjusting what you hear as needed.</p>
+		
+		<h3>Volume Sliders</h3>
+		
+		<p class="centeredimage">
+			<img src="images/monitors-04.png" alt="" width="240" height="83" style="border-radius: 8px;">
+			<br>A monitor's volume slider
+		</p>		
+		
+		<p>Monitors offer a volume slider under their <span class="uielement">Options</span> area, enabling you to control the volume level audio at which audio is heard.</p>
+
+		<h3>Muted Application Sources</h3>
+		
+		<p>When a virtual device includes a monitor, it will be activated whenever ones of its sources is providing audio, even if no other application is using the device. This will in turn cause the <span class="uielement">Mute when capturing</span> setting for application sources to apply. As a result, audio may not be heard through the Mac's default output, but would be heard through the monitor device.</p>
+
+
+		<h2>Removing a Monitor</h2>
+
+		<p>To remove a monitor from your virtual device, click on it in the editor to highlight it, then click the <span class="uielement">Delete</span> button in the bottom bar or select <span class="uielement">Delete</span> from the <span class="uielement">Edit</span> menu.</p>	
+
+		
+		<h2>Device Usage</h2>
+
+		<p>When you've fully configured your virtual device, the <a href="usingvirtualdevices.html">Using Virtual Devices</a> page offers more information on using it on your Mac.</p>
+		
+
+
+
+		</div>
+	</div><!-- main-->
+
+
+
+		<div id="footer">
+		<div id="footertext">Have questions the manual doesn't answer? Visit our <a href="https://rogueamoeba.com/support/">Support Center</a>.
+		</div>	
+	</div>
+	
+	<script type="text/javascript">
+		var allAnchors = document.getElementsByClassName('sidebarAnchor');
+	
+	    var documentFileName = window.location.pathname.substr(window.location.pathname.lastIndexOf('/') + 1);
+	
+	    for( idx=0; idx < allAnchors.length; idx++ )
+	    {
+	        var anchorEl = allAnchors[idx];
+	        var anchorFileName = anchorEl.href.substr(anchorEl.href.lastIndexOf('/') + 1);
+	
+	        if( anchorFileName == documentFileName )
+	            anchorEl.classList.add( 'selected' );
+	    }
+	</script>
+	
+	
+
+</body>
+</html>

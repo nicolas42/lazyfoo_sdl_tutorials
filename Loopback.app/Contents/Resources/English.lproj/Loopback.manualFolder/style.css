@@ -1,0 +1,90 @@
+/* 
+Title:		Global style, plus app-specific styles
+*/
+
+/* import stylesheets */
+
+@import url("style-global.css");
+@import url("style-dark.css");
+
+/* end import */
+
+
+
+/* Custom Styles for Loopback */
+
+body {
+	background-image: -webkit-linear-gradient(left, #e7f5f5, #e7f5f5 200px, #ffffff 200px, #ffffff);
+}
+
+#nav ul {
+	background: #e7f5f5;	
+}
+
+a {
+	color: #3cbfbf;
+}
+
+/* 	Highlight Current Page */
+#nav a:hover {
+	color: #3cbfbf !important;
+}
+
+#nav a.selected {
+	background: #3cbfbf;
+	color: #fff;
+	pointer-events: none;
+	cursor: default;
+}
+
+.step {
+	float: left;
+	clear: left;
+}
+
+.step img {
+	margin: 0 0 30px 30px;
+	float: right;
+}
+
+.icon-image path {
+	fill: #3cbfbf;
+}
+
+@media (prefers-color-scheme: dark) {
+	
+	#nav h3 {
+		color: #fff;
+	}
+	
+	body {
+		background-image: -webkit-linear-gradient(left, #393939, #393939 200px, #fff 200px, #fff);
+		background-image: -webkit-linear-gradient(left, #393939, #393939 200px, #333 200px, #333);
+	}
+
+	#nav a:hover {
+		color: #3cbfbf !important;
+	}
+	
+	#nav a.selected {
+		background: #3cbfbf !important;
+		color: #fff !important;
+	}
+	
+	#nav h3 {
+		color: #888;
+	}
+	
+	#nav a {
+		color: #fff;
+	}
+	
+	#header {
+		background: #2b2b2b !important;
+
+	}
+
+	#footer {
+		background: #2b2b2b !important;
+	}
+}

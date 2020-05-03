@@ -1,0 +1,55 @@
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="../global/css/style.css">
+	<script type="text/javascript" src="../global/jquery-3.3.1.slim.min.js"></script>
+</head>
+
+<body style="background: #f2f2f2;">
+
+<!-- Placeholder for positioning buttons since the content on this page is all absolute-->
+<div style="height: 550px;"></div> 
+
+<div class="slide" id="slide-a">
+	<h1 class="quickstart-title">Powerful Virtual Audio Devices</h1>
+	
+	<div class="left-text" style="top: 400px;">
+		<p>Loopback's magic is built on its ability to create &ldquo;virtual audio devices&rdquo;, which appear on your system exactly like a physical device. These virtual devices merge sound from multiple applications and inputs into a single source.</p>
+	</div>
+	
+	<div class="right-text" style="top: 400px;">
+		<p>Virtual devices pull audio from source apps and devices, then routes it with a set of channel mappings. In seconds, you can get a virtual audio device configured, then select it as an input or output in <i>any</i> audio application on your system.</p>
+	</div>
+</div>
+
+<img class="slide" id="slide-b" src="../global/images/quickstart-1b.png" srcset="../global/images/quickstart-1b@2x.png 2x" alt="" width="800" height="550">
+
+<img class="slide" id="slide-c" src="../global/images/quickstart-1c.png" srcset="../global/images/quickstart-1c@2x.png 2x" alt="" width="800" height="550">
+
+<img class="slide" id="slide-d" src="../global/images/quickstart-1d.png" srcset="../global/images/quickstart-1d@2x.png 2x" alt="" width="800" height="550">
+
+<div id="flash" style="background: #f2f2f2;"><br></div>
+
+</body>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	setTimeout(function (){
+		$('#slide-a').addClass('visible');
+		$('#flash').addClass('hidden');
+	}, 0);
+	
+	setTimeout(function (){
+		$('#slide-b').addClass('visible');
+	}, 150);
+	
+	setTimeout(function (){
+		$('#slide-c').addClass('visible');
+	}, 300);
+	
+	setTimeout(function (){
+		$('#slide-d').addClass('visible');
+	}, 450);
+});
+</script>
+
+</html>

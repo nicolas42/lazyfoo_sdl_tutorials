@@ -1,0 +1,57 @@
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="../global/css/style.css">
+	<script type="text/javascript" src="../global/jquery-3.3.1.slim.min.js"></script>
+</head>
+
+
+<body style="background: #f2f2f2;">
+
+<!-- Placeholder for positioning buttons since the content on this page is all absolute-->
+<div style="height: 550px;"></div> 
+
+<div class="slide" id="slide-a">
+	<h1 class="quickstart-title">Combine Audio Sources</h1>
+	
+	<div class="left-text" style="top: 400px;">
+		<p>Combining multiple audio sources is easy. Here, audio from both iTunes and a USB mic is pulled into one virtual audio device, then merged together on the virtual device's two channels.</p>
+	</div>
+	
+	<div class="right-text" style="top: 400px;">
+		<p>The resulting virtual device can then be set as an input in other apps like Skype or Facetime, sending audio from both iTunes and the mic into the app.</p>
+	</div>
+</div>
+
+<img class="slide" id="slide-b" src="../global/images/quickstart-2b.png" srcset="../global/images/quickstart-2b@2x.png 2x" alt="" width="800" height="550"/>
+
+<img class="slide" id="slide-c" src="../global/images/quickstart-2c.png" srcset="../global/images/quickstart-2c@2x.png 2x" alt="" width="800" height="550"/>
+
+<img class="slide" id="slide-d" src="../global/images/quickstart-2d.png" srcset="../global/images/quickstart-2d@2x.png 2x" alt="" width="800" height="550"/>
+
+<div id="flash" style="background: #f2f2f2;"><br></div>
+
+</body>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	setTimeout(function (){
+		$('#slide-a').addClass('visible');
+		$('#flash').addClass('hidden');
+	}, 0);
+
+	setTimeout(function (){
+		$('#slide-b').addClass('visible');
+	}, 150);
+	
+	setTimeout(function (){
+		$('#slide-c').addClass('visible');
+	}, 300);
+	
+	setTimeout(function (){
+		$('#slide-d').addClass('visible');
+	}, 450);
+	
+});
+</script>
+
+</html>

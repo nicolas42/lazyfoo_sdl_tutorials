@@ -1,0 +1,101 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Acknowledgements and Open Source Licenses</title>
+	<link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+	
+	
+	<div id="header">
+		<div id="help-header">
+			<img src="images/lb-helpheader.png" alt="Loopback Help" style="width: 440px; height: 76px;" />
+		</div>
+	</div>
+	<div id="nav">
+					<a href="index.html" class="sidebarAnchor" >Introduction</a>
+			<a href="devicebasics.html" class="sidebarAnchor" >Device Basics</a>
+			<div class="nonlinkedParent"><h3>Device Configuration</h3>
+			<a href="sources.html" class="sidebarAnchor" >Sources</a>
+			<a href="outputchannels.html" class="sidebarAnchor" >Output Channels</a>
+			<a href="monitors.html" class="sidebarAnchor" >Monitors</a>
+</div>			<a href="usingvirtualdevices.html" class="sidebarAnchor" >Using Virtual Devices</a>
+			<a href="passthru.html" class="sidebarAnchor" >Notes on Pass-Thru</a>
+			<a href="preferences.html" class="sidebarAnchor" >Preferences</a>
+			<a href="purchasing.html" class="sidebarAnchor" >Purchasing</a>
+			<div class="nonlinkedParent"><h3>Etcetera</h3>
+			<a href="etc-installinguninstalling.html" class="sidebarAnchor" >Installing &amp; Uninstalling</a>
+			<a href="etc-userlicense.html" class="sidebarAnchor" >User License</a>
+			<a href="etc-acknowledgements.html" class="sidebarAnchor" >Acknowledgements</a>
+</div>	</div>
+
+	<!-- Save position of the 'nav' div -->
+	<script>
+	if(typeof(Storage) !== 'undefined') 
+	{
+		document.addEventListener('DOMContentLoaded', function() 
+		{
+			var pos = +localStorage.getItem('nav-y-pos');
+			if (pos)
+				document.getElementById('nav').scrollTop = pos;
+		});
+
+		document.getElementById('nav').addEventListener('scroll', function(e) 
+		{
+			var pos = document.getElementById('nav').scrollTop;
+			localStorage.setItem('nav-y-pos', pos);
+		});
+	}
+	</script>
+
+	
+	
+	<div class="main">
+		<div class="content">
+			<h1>Loopback Acknowledgements</h1>
+
+			<p>Portions of this Rogue Amoeba software may utilize the following copyrighted material, the use of which is hereby acknowledged.</p>
+
+			<!-- BEGIN SPARKLE -->
+			<p><b>Sparkle</b>
+			<br>Copyright &copy; Andy Matuschak
+
+			<p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+			<p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+			<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+			<!-- END SPARKLE -->
+
+	 	</div>
+	
+	</div><!-- main-->
+
+		<div id="footer">
+		<div id="footertext">Have questions the manual doesn't answer? Visit our <a href="https://rogueamoeba.com/support/">Support Center</a>.
+		</div>	
+	</div>
+	
+	<script type="text/javascript">
+		var allAnchors = document.getElementsByClassName('sidebarAnchor');
+	
+	    var documentFileName = window.location.pathname.substr(window.location.pathname.lastIndexOf('/') + 1);
+	
+	    for( idx=0; idx < allAnchors.length; idx++ )
+	    {
+	        var anchorEl = allAnchors[idx];
+	        var anchorFileName = anchorEl.href.substr(anchorEl.href.lastIndexOf('/') + 1);
+	
+	        if( anchorFileName == documentFileName )
+	            anchorEl.classList.add( 'selected' );
+	    }
+	</script>
+	
+	
+
+</body>
+</html>

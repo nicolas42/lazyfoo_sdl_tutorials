@@ -1,0 +1,108 @@
+{
+	// MARK: level meter
+	// -----------------
+
+	MaskLayer:							// a simple opaque layer to instantiate as a mask
+	{
+		nsClass: GXDrawLayer,
+		gxBackColor: "name:black",
+		gxIsOpaque: true
+	},
+	
+	PeakLayer:
+	{
+		nsClass: GXMeterLayer,
+		gxLayerZPosition: 1,
+		gxValueKeyPath: "",
+		gxBackPainter:
+		{
+			nsClass: GXRoundRectPainter,
+			gxFillColor: "name:meterPeak",
+			gxFrameColor: "name:meterPeak",
+			focused:
+			{
+				gxFillColor: "name:meterPeakSel",
+				gxFrameColor: "name:meterPeakSel",
+			}
+		},
+		gxMaskLayer: MaskLayer,			// sets layer color for fill
+		gxVertical: false
+	},
+	
+	PeakHoldLayer:
+	{
+		nsClass: GXDrawLayer,
+		gxLayerZPosition: 0,
+		gxFrameRect: "0, 0, 1, 8",	// size matters, not position
+		gxBackPainter:
+		{
+			nsClass: GXPainter,
+			gxFillColor: "name:meterPeakHold",
+		}
+	},
+	
+	PeakClipLayer:
+	{
+		nsClass: GXDrawLayer,
+		gxLayerZPosition: 4,
+		gxFrameRect: "0, 0, 2, 8",		// size matters, not position
+		gxBackPainter:
+		{
+			nsClass: GXPainter,
+			gxFillColor: "name:meterPeakClip",
+		}
+	},
+	
+	RootLayer:
+	{
+		nsClass: GXDrawLayer,
+		gxValueKeyPath: "",
+		gxVertical: false,
+		gxBackPainter:
+		{
+			nsClass: GXRoundRectPainter,
+			gxCornerRadius: 2,
+			gxStrokeWidth: 0.5,
+			gxFillColor: "name:meterBg",
+			gxFrameColor: "name:meterFrame",
+			selected:
+			{
+				gxFillColor: "name:meterBgSel",
+				gxFrameColor: "name:meterFrameSel",
+			}
+		},
+		gxMaskLayer:
+		{
+			nsClass: GXDrawLayer,
+			gxBackPainter:
+			{
+				nsClass: GXRoundRectPainter,
+				gxCornerRadius: 2,
+				gxFillColor: "name:black",
+				gxFrameColor: "name:black",
+			},
+		}
+	},
+	
+	LevelMeter:							// template for level meter
+	{
+		nsClass: "GXLevelMeter",
+		gxFrameRateDivider: 2,
+		gxRootLayer: RootLayer,
+		gxPeakLayer: PeakLayer,
+		gxPeakHoldLayer: PeakHoldLayer,
+		gxPeakClipLayer: PeakClipLayer,
+		gxClipValueKeyPath: "meter.clipValue",
+		gxPeakValueKeyPath: "meter.peakValue",
+		gxVertical: false
+	},
+	
+	ActiveMeter:
+	{
+		nsClass: LBGXActiveMeter,
+		gxActiveLayer: PeakLayer,
+		gxActiveValueKeyPath: "meter.activeValue",
+		gxFrameRateDivider: 5,
+		gxRootLayer: RootLayer
+	}
+}

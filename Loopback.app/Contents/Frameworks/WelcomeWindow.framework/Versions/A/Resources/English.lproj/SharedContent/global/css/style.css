@@ -1,0 +1,268 @@
+
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+	padding: 0px 0px 0px 0px !important;
+	margin: 0;
+	width: 800px;
+	height: 550px;
+	overflow: hidden;
+	background-color: #fff;
+	color: #333;
+	font-size: 18px;
+	line-height: 26px;
+	font-family: system, -apple-system, ".SFNSText-Regular", "Helvetica Neue", "Lucida Grande", sans-serif;
+	font-weight: 300;
+	float: inherit;
+	position: relative;
+	-webkit-font-smoothing: antialiased;
+}
+
+/* Slide Logic */
+
+.slide-bg {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 800px;
+	height: 550px;
+	overflow: hidden;
+}
+
+.slide {
+	position: absolute;
+	left: 0;
+	top: 0;
+	filter: blur(5px);
+	transform: scale(1.2, 1.2) translate(0,40px);
+	opacity: 0;
+	transition: all 500ms ease;
+	width: 800px;
+	height: 550px;
+	overflow: hidden;
+}
+
+.slide.visible {
+	filter: blur(0px);
+	opacity: 1;
+	transform: scale(1, 1) translate(0,0);
+	transition: all 500ms ease;
+}
+
+.slide.faded, .slide-bg.faded {
+	filter: blur(4px) saturate(0.5);
+	opacity: 0.5;
+	transform: scale(0.8, 0.8) translate(0,0) rotate(360deg);
+	transition: all 1500ms ease;
+}
+
+.overlay {
+	position: absolute;
+	left: 0;
+	top: 0;
+	transform: scale(1, 1) translate(0,0);
+	opacity: 0;
+	transition: all 500ms ease;
+	width: 800px;
+	height: 550px;
+	overflow: hidden;
+}
+
+.overlay.visible {
+	opacity: 1;
+	transition: all 500ms ease;
+}
+
+#flash {
+	width: 800px;
+	height: 550px;
+	position: absolute;
+	background: #fff;
+	left: 0;
+	top: 0;
+	opacity: 1;
+	transition: all 500ms ease;
+}
+
+#flash.hidden {
+	opacity: 0;
+	transition: all 500ms ease;
+}
+
+.template-app-icon {
+	width: 256px;
+	height: 256px;
+	position: absolute;
+	display: block;
+	top: 125px;
+	left: 272px;
+	
+	/* debugging styles - activate these styles to preview icon placement */
+
+	/*
+		background: pink;
+		border-radius: 50%;
+	*/
+
+
+}
+
+/* Text Styling */
+
+h1 {
+	color: #333;
+	font-size: 36px;
+	line-height: 42px;
+	text-align: center;
+	font-weight: 800;
+	display: block;
+	text-transform: uppercase;
+	width: 760px;
+	position: absolute;
+	left: 20px;
+}
+
+h2 {
+	color: #333;
+	font-size: 34px;
+	line-height: 34px;
+	text-align: center;
+	font-weight: 700;
+	display: block;
+	
+	width: 760px;
+	position: absolute;
+	left: 20px;
+}
+
+h3 {
+	color: #333;
+	font-size: 34px;
+	line-height: 42px;
+	text-align: center;
+	font-weight: 400;
+	display: block;
+	
+	width: 760px;
+	position: absolute;
+	left: 20px;
+}
+
+h4 {
+	color: #333;
+	font-size: 22px;
+	line-height: 28px;
+	text-align: center;
+	font-weight: 400;
+	display: block;
+	
+	width: 760px;
+	position: absolute;
+	left: 20px;
+}
+
+a {
+	color: #333;
+}
+
+.text {
+	position: absolute;
+	bottom: 20px;
+	left: 100px;
+	width: 600px;
+	text-align: center;
+}
+
+.text strong {
+	font-weight: 600;
+}
+
+#conflicted-apps-list {
+	display: inline-block;
+	padding: 20px;
+	background: #f2f2f2;
+	border-radius: 20px;
+	font-size: 18px;
+	line-height: 24px;
+	text-align: center;
+}
+
+.conflicted-app {
+	display: inline-block; 
+	width: 168px; 
+	float: left;
+}
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+	
+Tinted Titles for each app
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+.airfoil .tinted, .airfoil-for-mac .tinted, .airfoil-mac .tinted {
+	color: #0571a3;
+}
+
+.audio-hijack .tinted {
+	color: #FF6400;
+}
+
+.farrago .tinted {
+	color: #7234DC;
+}
+
+.fission .tinted {
+	color: #D7B85A;
+}
+
+.loopback .tinted {
+	color: #3cbfbf;
+}
+
+.piezo .tinted {
+	color: #C1773E;
+}
+
+.soundsource .tinted {
+	color: #279878;
+}
+
+@media (prefers-color-scheme: dark) {
+
+	body {
+		background-color: #333;
+		color: #fff;
+	}
+	
+	h1, h1.tour, h2, h3, h4, h5, h6, p {
+		color: #fff;
+	}
+	
+	#conflicted-apps-list {
+		background: #444;
+		border-radius: 20px;
+		color: #fff;
+	}
+	
+	#flash {
+		background: #333;
+	}
+	
+	a {
+		color: #fff;
+	}
+	
+	
+	/* Tinted App Titles */
+	
+	.airfoil .tinted {
+		color: #37bfe7;
+	}
+	
+}

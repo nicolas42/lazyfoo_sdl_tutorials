@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Installing &amp; Uninstalling Loopback</title>
+	<link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+	
+	
+	<div id="header">
+		<div id="help-header">
+			<img src="images/lb-helpheader.png" alt="Loopback Help" style="width: 440px; height: 76px;" />
+		</div>
+	</div>
+	<div id="nav">
+					<a href="index.html" class="sidebarAnchor" >Introduction</a>
+			<a href="devicebasics.html" class="sidebarAnchor" >Device Basics</a>
+			<div class="nonlinkedParent"><h3>Device Configuration</h3>
+			<a href="sources.html" class="sidebarAnchor" >Sources</a>
+			<a href="outputchannels.html" class="sidebarAnchor" >Output Channels</a>
+			<a href="monitors.html" class="sidebarAnchor" >Monitors</a>
+</div>			<a href="usingvirtualdevices.html" class="sidebarAnchor" >Using Virtual Devices</a>
+			<a href="passthru.html" class="sidebarAnchor" >Notes on Pass-Thru</a>
+			<a href="preferences.html" class="sidebarAnchor" >Preferences</a>
+			<a href="purchasing.html" class="sidebarAnchor" >Purchasing</a>
+			<div class="nonlinkedParent"><h3>Etcetera</h3>
+			<a href="etc-installinguninstalling.html" class="sidebarAnchor" >Installing &amp; Uninstalling</a>
+			<a href="etc-userlicense.html" class="sidebarAnchor" >User License</a>
+			<a href="etc-acknowledgements.html" class="sidebarAnchor" >Acknowledgements</a>
+</div>	</div>
+
+	<!-- Save position of the 'nav' div -->
+	<script>
+	if(typeof(Storage) !== 'undefined') 
+	{
+		document.addEventListener('DOMContentLoaded', function() 
+		{
+			var pos = +localStorage.getItem('nav-y-pos');
+			if (pos)
+				document.getElementById('nav').scrollTop = pos;
+		});
+
+		document.getElementById('nav').addEventListener('scroll', function(e) 
+		{
+			var pos = document.getElementById('nav').scrollTop;
+			localStorage.setItem('nav-y-pos', pos);
+		});
+	}
+	</script>
+
+	
+	
+	<div class="main">
+		<div class="content">
+        <h1>Installing &amp; Uninstalling Loopback</h1>
+
+    	
+		<h2>Installing Loopback</h2>
+
+		<p>As you're reading this manual, it's likely you've already successfully installed Loopback. Still, in the interest of being comprehensive, the following is the entirety of the installation procedure for Loopback.</p>
+		
+		<p>Drag Loopback from your download folder to the Applications folder then double-click its icon to begin using it. Loopback will then walk you through the necessary process to install the ACE (Audio Capture Engine) backend, which is required for the application to function.</p>
+
+
+
+	
+
+		<h2>Uninstalling Loopback</h2>
+
+		<p>If you wish to remove Loopback, we'd certainly like to know why! You can <a href="https://rogueamoeba.com/support/supportRequest.php">contact us directly</a> to provide feedback. We're always working to improve our products, so don't hesitate to tell us what was missing or didn't work for you. 
+
+		<p>To remove Loopback, first select <span class="uielement">Uninstall ACE</span> from the <span class="uielement">Loopback</span> menu. You'll be walked through the process to remove Loopback's ACE (Audio Capture Engine) backend from the system.</p>
+
+		<p class="centeredimage">
+	        	<img src="images/etc-uninstall.png" alt="" width="540" style="border-radius: 8px;">
+		    </p> 
+		
+		<p>Once that process is complete, you can quit Loopback and drag the application to the Trash.</p>
+        
+	 	</div>	
+	</div><!-- main-->
+	
+	<div style="page-break-after:never">&nbsp;</div>	
+
+		<div id="footer">
+		<div id="footertext">Have questions the manual doesn't answer? Visit our <a href="https://rogueamoeba.com/support/">Support Center</a>.
+		</div>	
+	</div>
+	
+	<script type="text/javascript">
+		var allAnchors = document.getElementsByClassName('sidebarAnchor');
+	
+	    var documentFileName = window.location.pathname.substr(window.location.pathname.lastIndexOf('/') + 1);
+	
+	    for( idx=0; idx < allAnchors.length; idx++ )
+	    {
+	        var anchorEl = allAnchors[idx];
+	        var anchorFileName = anchorEl.href.substr(anchorEl.href.lastIndexOf('/') + 1);
+	
+	        if( anchorFileName == documentFileName )
+	            anchorEl.classList.add( 'selected' );
+	    }
+	</script>
+	
+	
+
+</body>
+</html>

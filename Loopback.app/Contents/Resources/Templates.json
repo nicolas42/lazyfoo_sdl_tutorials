@@ -1,0 +1,309 @@
+
+{
+
+	// ---------------------------------
+	// MARK: formatter: AX volume slider
+	
+	AXVolumeSliderFormatter:
+	{
+		nsClass: GXScaledFormatter,
+		scale: 1,
+		format: "%.0f%%"
+	},
+	
+	// -----------------
+	// MARK: header view
+	
+	HeaderView:
+	{
+		+: LabelView,
+		gxForePainter:
+		{
+			+: LabelFore.blackColor.bold.size14,
+			gxEdgeInsets: "16, 0, 0, 0"
+		}
+	},
+	
+	// -------------------------
+	// MARK: header tagline view
+	
+	HeaderTagLineView:
+	{
+		+: LabelView,
+		gxForePainter:
+		{
+			+: LabelFore.size11,
+			gxFontColor: "name:mediumText",
+			gxEdgeInsets: "16, 0, 0, 0"
+		}
+	},
+	
+	// ------------------------------
+	// MARK: painter: background fill
+
+	FillBack:
+	{
+		nsClass: GXPainter,
+		gxFillColor: "name:white",
+		+: NamedFillColors,	// include fill colors as alternate styles
+	},
+	
+	// ---------------------------------
+	// MARK: painter: control background
+	
+    ControlBack:
+    {
+		nsClass: GXRoundRectPainter,
+		gxCornerRadius: 4,
+		gxFrameColor: "name:selection",
+		gxFillColor: "name:selection",
+
+		on: 	{ gxFillColor: "name:white" },		// when acting as a toggle
+		pressed: {
+			gxFrameColor: "name:themeDark",
+			gxFillColor: "name:themeDark",
+			"on": { gxFillColor: "name:black" }	// pressed when toggled 'on' can be different
+		},
+		disabled: {
+			 gxFrameColor: "name:themeDisabled",
+			 gxFillColor: "name:themeDisabled",
+		},
+
+		// for use like segmented buttons
+		leftSegment:   { gxCornerRadii: "4, 0, 0, 4" },
+		middleSegment: { gxCornerRadii: "0, 0, 0, 0" },
+		rightSegment:  { gxCornerRadii: "0, 4, 4, 0" },
+	},
+	
+	// ---------------------------------
+	// MARK: painter: control foreground
+	
+    ControlFore:
+    {
+		+: LabelFore,
+		gxEdgeInsets: "2, 0, 2, 0",
+		gxIconSpacing: 5,
+		gxFontColor: "name:white",
+		on:        { gxFontColor: "name:selection" },	// when acting as a toggle
+		pressed:   { gxFontColor: "name:lightText" },
+		disabled:  { gxFontColor: "name:mediumText" }
+    },
+	
+	// --------------------
+	// MARK: painter: image
+	
+	ImagePainter:
+	{
+		nsClass: GXImagePainter
+	},
+
+	// -----------------------------------
+	// MARK: painter: frame blue/green/red
+	
+	BlueFramePainter:
+	{
+		nsClass: GXRoundRectPainter,
+		gxCornerRadii: "0, 0, 0, 0",
+		gxFrameColor: "name:blue"
+	},
+	
+	GreenFramePainter:
+	{
+		nsClass: GXRoundRectPainter,
+		gxCornerRadii: "0, 0, 0, 0",
+		gxFrameColor: "name:green"
+	},
+	
+	RedFramePainter:
+	{
+		nsClass: GXRoundRectPainter,
+		gxCornerRadii: "0, 0, 0, 0",
+		gxFrameColor: "name:red"
+	},
+	
+	// -------------------------------
+	// MARK: painter: label foreground
+	
+	LabelFore:
+	{
+		nsClass: GXStringPainter,
+
+		// default settings
+		gxFontSize: 13,
+		gxFontColor: "name:darkText",
+		//gxFontShadow: "[0, 0, 0, 0], [0, 1], 1",
+		gxHAlign: 0.5,
+		gxVAlign: 0.5,
+
+		// alignment styles
+		left:       { gxHAlign: 0 },
+		centerx:    { gxHAlign: 0.5 },
+		right:      { gxHAlign: 1 },
+		top:        { gxVAlign: 0 },
+		centery:    { gxVAlign: 0.5 },
+		bottom:     { gxVAlign: 1 },
+
+		// weight
+		light:     { gxFontWeight: -0.4 },
+		regular:   { gxFontWeight: 0 },
+		bold:      { gxFontWeight: 0.4 },
+
+		// font colors
+		darkColor:       { gxFontColor: "name:darkText" },
+		mediumColor:     { gxFontColor: "name:mediumText" },
+		lightColor:      { gxFontColor: "name:lightText" },
+		highlightColor:  { gxFontColor: "name:highlight" },
+		disabledColor:   { gxFontColor: "name:disabled" },
+		darkTextColor:   { gxFontColor: "name:darkText" },
+
+		// word wrap
+		wrap:     { gxLineBreakMode: 0 },
+
+		// sizes
+		size9:   { gxFontSize: 9 },
+		size95:  { gxFontSize: 9.5 },
+		size10:  { gxFontSize: 10 },
+		size105: { gxFontSize: 10.5 },
+		size11:  { gxFontSize: 11 },
+		size115: { gxFontSize: 11.5 },
+		size12:  { gxFontSize: 12 },
+		size125: { gxFontSize: 12.5 },
+		size13:  { gxFontSize: 13 },
+		size135: { gxFontSize: 13.5 },
+		size14:  { gxFontSize: 14 },
+		size145: { gxFontSize: 14.5 },
+		size15:  { gxFontSize: 15 },
+		size16:  { gxFontSize: 16 },
+		size17:  { gxFontSize: 17 },
+		size18:  { gxFontSize: 18 },
+		size20:  { gxFontSize: 20 },
+		size22:  { gxFontSize: 22 },
+	},
+
+	// -----------------------------
+    // MARK: painter: scrollbar knob
+
+	ScrollBarKnob:
+	{
+		nsClass: GXRoundRectPainter,
+		gxCornerRadius: 2.5,
+		gxFillColor: "name:scrollBarKnob",
+		vertical: { gxEdgeInsets: "6, 5, 4, 5" },
+		horizontal: { gxEdgeInsets: "6, 3, 6, 3" }
+	},
+	
+	// ---------------------------------------
+    // MARK: painter: stretch horizontal image
+
+	StretchHImagePainter:
+	{
+		nsClass: GXStretchImagePainter,
+		gxVertical: false,
+		gxVAlign: 0.5
+	},
+	
+	// ------------------
+    // MARK: view: button
+
+    ButtonView:
+    {
+		nsClass: GXButtonView,
+		gxIntrinsicHeight: 22,
+		gxForePainter: ControlFore.size12,
+		gxBackPainter: ControlBack,
+		gxLabelTemplate: LabelView.lightText.size11,
+    },
+
+	// -----------------
+    // MARK: view: image
+
+    ImageView:
+    {
+		nsClass: LBGXImageView,
+		gxForePainter: ImagePainter,
+    },
+	
+	// -----------------
+	// MARK: view: label
+
+	LabelView:
+	{
+		nsClass: GXLabelView,
+		gxForePainter: LabelFore,
+		gxDefaultValue: "12345",  	// dummy content so it has a size and something visible
+		gxIntrinsicHeight: 16
+	},
+	
+	// -------------------------
+	// MARK: view: on/off switch
+	
+	OnOffSwitchView:
+	{
+		nsClass: LBGXSwitchView,
+		axRoleDescription: "Switch",
+		gxImageBaseName: "switch",
+		gxLayout: [ "H:[self(41)]" ],
+		gxValueKeyPath: "enabled",
+		thumbWidth: 16
+	},
+	
+	// ---------------------
+	// MARK: view: scrollbar
+	
+	ScrollBarView:
+	{
+		nsClass: GXScroller,
+		gxKnobPainter: ScrollBarKnob,
+		gxMinKnobLength: 20
+	},
+	
+	// ------------------
+	// MARK: view: slider
+	
+	SliderView:
+	{
+		nsClass: LBGXSliderView,
+		gxEndGap: 6,		// must match artwork which is visually 12px wide
+		gxKnobPainter: "ImagePainter.hslider.knob",
+		gxTrackPainter:
+		{
+			+: StretchHImagePainter.hslider.track,
+			gxEdgeInsets: "1, 0, 1, 0"
+		}
+	},
+	
+	// ----------------------------
+	// MARK: view: volume indicator
+	
+	VolumeIndicatorView:
+	{
+		nsClass: LBGXButtonView,
+		axCheckboxRole: true,
+		axDescription: "Mute",
+		gxStylesKeyPath: "volumeIndicatorStyles",	// so mute can be cancelled on any click, but barely seems needed
+		gxForePainter:
+		{
+			+: ImagePainter,
+			gxTintColor: "name:darkText",
+			disabled: { gxTintColor: "name:darkTextDisabled" },
+			muted: { gxTintColor: "name:volumeIndicatorMuted" }
+		},
+		gxIconBaseName: "volumeIndicator",
+		gxValueKeyPath: "volumeIndicatorButton"
+	},
+	
+	// -------------------------
+	// MARK: view: volume slider
+	
+	VolumeSliderView:
+	{
+		+: SliderView,
+		axFormatter: AXVolumeSliderFormatter,
+		axDescription: "Volume",
+		gxDisableOnKey: "volumeMuted",
+		gxAlwaysSendClicks: true,
+		gxRangeMax: 100,
+		gxRangeMin: 0,
+		gxValueKeyPath: "volumeLevelFromUI"
+	}
+}

@@ -1,0 +1,86 @@
+<html>
+<head>
+
+	<style>
+	@media screen, print
+	{
+		* {
+			-webkit-user-select: none;
+			-webkit-user-drag: none;
+			cursor: default;
+		}
+		
+		html {
+			box-sizing: border-box;
+		}
+		*, *:before, *:after {
+			box-sizing: inherit;
+		}
+				
+		a 
+		{ 
+			cursor: auto; /* We reset the cursor type here */
+		}
+
+		body
+		{
+			padding: 0px 0px 0px 0px !important;
+			background-color: transparent;
+			color: #5e6060;
+			font-size: 16px;
+			line-height: 18px;
+			font-family: -apple-system,  '.SFNSText-Regular', 'Source Sans Pro', Helvetica, Sans-serif;
+			float: inherit;
+			text-align: center; 
+		}	
+		
+		p {
+			margin: 0 0 18px;
+		}
+		
+		.centered {
+			width: 300px;
+			  position: absolute;
+			  top: 50%;
+			  left: 50%;
+			  transform: translate(-50%, -50%);
+   		}
+		
+		.screenshot 
+		{
+			float: right;
+			clear: none;
+			margin: 24px 0px 0px 0px;
+		}
+
+		h1 
+		{
+			font-weight: bold;
+			font-size: 22px;
+		}
+		
+		@media (prefers-color-scheme: dark) {
+			body {
+				color: #fff;
+				font-size: 16px;
+				line-height: 18px;
+				font-family: -apple-system,  '.SFNSText-Regular', 'Source Sans Pro', Helvetica, Sans-serif;
+				float: inherit;
+				text-align: center; 
+			}	
+		}
+	}
+	
+
+	</style>
+	
+</head>
+<body>
+
+	<div class="centered">
+		<img src="images/launch-device.png" srcset="images/launch-device@2x.png 2x" alt="Virtual Audio Device" width="96" height="66" style="margin-bottom: 10px;">
+		<p>Create your first virtual audio device by<br>clicking <b>'New Virtual Device'</b>.</p>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,228 @@
+{
+	// -------------------------
+	// MARK: Missing device view
+	//
+	
+	MissingDeviceView:
+	{
+		nsClass: GXSettingsView,
+		gxLayout: [
+			"H:|[self]|",
+			"H:|-13-[missingDeviceLabel]-[missingDeviceDetails(46)]-13-|",
+			"V:[missingDeviceDividerTop]-4-[missingDeviceLabel]",
+			"V:[missingDeviceDividerTop]-2-[missingDeviceDetails(20)]",
+		],
+		gxBackPainter:
+		{
+			nsClass: LBGXStripePainter,
+			gxEdgeInsets: "4, 0, 4, 0",
+			gxStrokeWidth: .5,
+			darkMode: { gxStrokeWidth: 1 },
+			lbGapWidth: 8,
+			lbStripeColor: "rgba: 227,38,69, 25"
+		},
+		gxChildViews:
+		{
+			missingDeviceDividerTop:
+			{
+				nsClass: GXDrawView,
+				gxLayout: [ "H:|-3-[self]-3-|", "V:[self(1)]" ],	// inset is tileSelectionWidth
+				gxBackPainter:
+				{
+					nsClass: GXPainter,
+					gxEdgeInsets: "1, 0, 1, .5",
+					gxFillColor: "name:tileDivider"
+				}
+			},
+			missingDeviceLabel:
+			{
+				+: LabelView.left.darkTextColor.size11,
+				gxDisableOnKey: "disabled",
+				gxForePainter:
+				{
+					+: LabelFore,
+					gxFontWeight: 0.2,
+					disabled: { gxFontColor: "name:darkTextDisabled" }
+				},
+				gxIntrinsicWidth: -1,
+				gxValueKeyPath: "missingDeviceLabel"
+			},
+			missingDeviceDetails:
+			{
+				+: ButtonView,
+				gxIntrinsicHeight: 18,
+				gxBackPainter: PatchboardButtonBack,
+				gxForePainter: PatchboardButtonFore,
+				gxTitle: "Details",
+				gxValueKeyPath: missingDeviceDetailsButton,
+				axHelp: "Show details about missing device"
+			}
+		}
+	},
+	
+	// ----------------------------
+	// MARK: Patchboard button view
+	//
+	
+	PatchboardButtonBack:
+	{
+		+: ControlBack,
+		gxEdgeInsets: "0, 2, 0, 2",
+		gxFillColor: "name:buttonBg",
+		gxFrameColor: "name:buttonFrame",
+		gxShadow: "{0, 0, 0, .25}, {0, -1}, 1",
+		disabled: { gxFillColor: "name:buttonBg" },
+		pressed:
+		{
+			gxFillColor: "name:buttonBgPressed",
+			gxFrameColor: "name:buttonFramePressed",
+			gxShadow: "{0, 0, 0, 1}, {0, -1}, 1"
+		}
+	},
+	
+	PatchboardButtonFore:
+	{
+		+: ControlFore.size11,
+		gxEdgeInsets: "0, 2, 0, 2",
+		gxVAlign: 0.5,
+		gxFontColor: "name:darkText",
+		gxIconTintColor: "name:darkText",
+		disabled:
+		{
+			gxFontColor: "name:lightText",
+			gxIconTintColor: "name:lightText",
+		},
+		pressed:
+		{
+			gxFontColor: "name:darkText"
+		}
+	},
+	
+	PatchboardButtonView:
+	{
+		+: ButtonView,
+		gxIntrinsicHeight: 26,
+		gxBackPainter: PatchboardButtonBack,
+		gxForePainter: PatchboardButtonFore
+	},
+	
+	// -----------------
+	// MARK: Socket view
+	//
+	//	Socket anchor point for wire connections.
+	//
+	SocketBack:
+	{
+		nsClass: GXRoundRectPainter,
+		gxEdgeInsets: "3, 3, 3, 3",		// allows space for the selection hilite,
+										// and a bigger hit target than it looks
+		gxCornerRadii: "4, 4, 4, 4",
+		gxFillColor: "name:socketBg",
+		gxFrameColor: "name:socketFrame",
+	},
+	
+	SocketView:
+	{
+		nsClass: LBSocketView,
+		gxBackPainter: SocketBack,
+		gxLayout: ["H:[self(14)]", "V:[self(14)]"]
+	},
+	
+	// ---------------
+	// MARK: Tile view
+	//
+	//	Source views, channel views, monitor views, etc. Provides
+	//	the shadow and selectable outline behavior.
+	//
+	
+	TileBottomBack:
+	{
+		nsClass: LBGXRoundRectPainter,		// bounds are inset by tileSelectionWidth in LBTileView.m
+		gxCornerRadii: "0, 0, 5, 5",
+		gxFillColor: "name:tileBg",
+		gxFrameColor: "name:tileFrame",
+		drawFrameTop: false
+	},
+	
+	TileTopBack:
+	{
+		nsClass: LBGXRoundRectPainter,		// bounds are inset by tileSelectionWidth in LBTileView.m
+		gxCornerRadii: "5, 5, 0, 0",
+		gxFillColor: "name:tileHeaderBg",
+		gxFrameColor: "name:tileFrame",
+		drawFrameBottom: false
+	},
+	
+	TileView:
+	{
+		nsClass: LBTileView,
+		gxWantsLayer: true,
+		selectable: true,					// flags for the overweight GXSettingsView
+		drawsSelected: true,				// flags for the overweight GXSettingsView
+		gxDisableOnKey: "disabled",
+		tileBottomPainter: TileBottomBack,
+		tileTopPainter: TileTopBack,
+		tileTopHeight: 30,
+		tileSelectionWidth: 3,				// bounds inset applied by LBTileView.m
+		gxSelectionColor: "name:selection",
+		tileShadow: "[0, 0, 0, 0.4], [0.5, 0.5], 2.5"		// r, g, b, a, x, y, radius
+	},
+	
+	// -----------------------
+	// MARK: Tile options view
+	
+	TileOptionsBack:
+	{
+		nsClass: GXRoundRectPainter,
+		gxCornerRadii: "0, 0, 5, 5",
+		gxFillColor: "name:tileBg",
+	},
+	
+	TileOptionsView:
+	{
+		nsClass: "GXListView",
+		gxLayoutSubviews: false,
+		gxCollapsible: true,
+		gxCollapsed: true,
+		axRoleDescription: "Section"
+	},
+	
+	// ------------------------------
+	// MARK: Tile options header view
+	
+	TileOptionsHeaderFore:
+	{
+		+: ControlFore.left,
+		gxEdgeInsets: "10, 0, 0, 0",
+		gxVAlign: 1,
+		gxFontSize: 11.5,
+		gxFontColor: "name:darkText",
+		gxIcon: "disclosure.open",
+		gxIconSpacing: 2,
+		gxIconTintColor: "name:darkText",
+		on:
+		{
+			gxIcon: "disclosure.closed",
+			pressed: { gxIcon: "disclosure.open" }
+		},
+		disabled:
+		{
+			gxFontColor: "name:darkTextDisabled",
+			gxIconTintColor: "name:darkTextDisabled",
+		},
+		pressed: { gxIcon: "disclosure.closed" }
+	},
+	
+	TileOptionsHeader:
+	{
+		+: ButtonView,
+		nsClass: "LBGXButtonView",
+		axIsIgnored: true,
+		gxBackPainter: nil,
+		gxForePainter: TileOptionsHeaderFore,
+		gxLayout: [ "H:|[self]|", "V:[self(15)]" ],
+		gxValueKeyPath: "collapsed",
+		gxTitle: "Options",
+		lbDisableUIOnKey: "disabled"
+	}
+}
