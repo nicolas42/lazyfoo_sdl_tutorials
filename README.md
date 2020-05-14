@@ -1,6 +1,25 @@
 from http://lazyfoo.net/tutorials/SDL/index.php
 
 
+Make like this
+
+sh 04_key_presses/make.sh
+./a.out
+
+
+msvc section is much the same
+
+04_key_presses/make.bat
+a
+
+
+
+msvc is required on windows
+
+
+
+==========================
+
 In windows I'm basically compiling it like this
 
 call "c:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvarsall.bat" x86
