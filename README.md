@@ -1,7 +1,9 @@
-THE FOLLOWING APPLIES TO MACOS
-----------------------------------------------------
+Running through these tutorials on macos 
+https://lazyfoo.net/tutorials/SDL/index.php
+
 
 INSTALL
+-----------------------------------------------------
 
 Download library from https://www.libsdl.org/
 

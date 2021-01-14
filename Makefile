@@ -8,7 +8,8 @@ omg:
 	# g++ -framework SDL2 -framework SDL2_image 07_texture_loading_and_rendering/07_texture_loading_and_rendering.cpp -o 7
 	# g++ -framework SDL2 -framework SDL2_image 08_geometry_rendering/08_geometry_rendering.cpp -o 8
 	# g++ -framework SDL2 -framework SDL2_image 15_rotation_and_flipping/15_rotation_and_flipping.cpp -o 15
-	g++ -framework SDL2 -framework SDL2_image -framework SDL2_ttf 16_true_type_fonts/16_true_type_fonts.cpp -o 16
+	# g++ -framework SDL2 -framework SDL2_image -framework SDL2_ttf 16_true_type_fonts/16_true_type_fonts.cpp -o 16
+	g++ -framework SDL2 -framework SDL2_image -framework SDL2_ttf 34_audio_recording/34_audio_recording.cpp -o 34
 
 clean:
 	rm 1 2 3 4 5 6 7 8 15 16
