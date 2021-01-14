@@ -1,4 +1,4 @@
-SETUP ON MACOS
+THE FOLLOWING APPLIES TO MACOS
 ----------------------------------------------------
 
 INSTALL
@@ -12,14 +12,24 @@ You may alternatively install it in <Your home directory>/Library/Frameworks
 if your access privileges are not high enough. 
 
 
-COMPILE AND LINK EXAMPLE
-
-g++ -framework SDL2 03_event_driven_programming/03_event_driven_programming.cpp
-
-
-
 NOTES
 -----------------------------------------------------
 
-The first example on mac doesn't load because it doesn't have an event loop I think.
-https://stackoverflow.com/questions/34424816/sdl-window-does-not-show
+The names of header files need to be changed on macos, e.g.
+
+#include <SDL2/SDL.h>
+#include <SDL2_image/SDL_image.h>
+
+
+To compile and link the proper frameworks (libraries) do something like this
+
+g++ -framework SDL2 -framework SDL2_image main.cpp
+
+
+The first and second examples don't load because they don't have event loops.  The event polling example event code is used instead. https://stackoverflow.com/questions/34424816/sdl-window-does-not-show
+
+other SDL frameworks can be downloaded from here
+https://www.libsdl.org/projects/
+
+
+ttf rendering in SDL sucks
