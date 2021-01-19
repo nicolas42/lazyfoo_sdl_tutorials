@@ -153,7 +153,7 @@ bool LTexture::loadFromRenderedText( std::string textureText, SDL_Color textColo
 
     // textSurface=TTF_RenderText_Blended(gFont, textureText.c_str(), color);
 
-    textSurface=TTF_RenderText_Shaded(gFont,textureText.c_str(),color,bgcolor);
+    // textSurface=TTF_RenderText_Shaded(gFont,textureText.c_str(),color,bgcolor);
 
 
 	if( textSurface == NULL )
