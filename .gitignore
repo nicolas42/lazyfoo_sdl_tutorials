@@ -1,3 +1,4 @@
+*.mp3
 # include/*
 # lib/*
 a.out
