@@ -1,6 +1,6 @@
 // https://gist.github.com/cdave1/10563386
-#include "SDL2/SDL.h"
-#include "SDL2_mixer/SDL_mixer.h"
+#include "SDL.h"
+#include "SDL_mixer.h"
 
 // static const char *MY_COOL_MP3 = "out.mp3"
 

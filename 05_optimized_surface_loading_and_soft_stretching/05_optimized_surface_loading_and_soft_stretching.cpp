@@ -5,7 +5,7 @@ clang++ -framework SDL2 05_optimized_surface_loading_and_soft_stretching/05_opti
 and may not be redistributed without written permission.*/
 
 //Using SDL, standard IO, and strings
-#include <SDL2/SDL.h>
+#include <SDL.h>
 #include <stdio.h>
 #include <string>
 

@@ -3,9 +3,9 @@ g++ -framework SDL2_mixer -framework SDL2_ttf -framework SDL2 test2.cpp
 */
 #include <stdlib.h>
 
-#include <SDL2/SDL.h>
-#include <SDL2_ttf/SDL_ttf.h>
-#include "SDL2_mixer/SDL_mixer.h"
+#include <SDL.h>
+#include <SDL_ttf.h>
+#include "SDL_mixer.h"
 
 #define WINDOW_WIDTH 300
 #define WINDOW_HEIGHT (WINDOW_WIDTH)
