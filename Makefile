@@ -8,17 +8,17 @@
 LINKER_FLAGS = -lSDL2 -lSDL2_image -lSDL2_ttf -lSDL2_mixer
 
 INCLUDE = \
--I /usr/local/Cellar/sdl2/2.0.14_1/include/SDL2/ \
--I /usr/local/Cellar/sdl2_image/2.0.5/include/SDL2  \
--I /usr/local/Cellar/sdl2_ttf/2.0.15/include/SDL2 \
--I /usr/local/Cellar/sdl2_mixer/2.0.4/include/SDL2 
+-I /Users/nick/Downloads/code/sdl_and_lazyfoo_sdl_tutorials/lib/sdl2/2.0.14_1/include/SDL2/ \
+-I /Users/nick/Downloads/code/sdl_and_lazyfoo_sdl_tutorials/lib/sdl2_image/2.0.5/include/SDL2  \
+-I /Users/nick/Downloads/code/sdl_and_lazyfoo_sdl_tutorials/lib/sdl2_ttf/2.0.15/include/SDL2 \
+-I /Users/nick/Downloads/code/sdl_and_lazyfoo_sdl_tutorials/lib/sdl2_mixer/2.0.4/include/SDL2 
 
 
 LIB = \
--L /usr/local/Cellar/sdl2/2.0.14_1/lib/ \
--L /usr/local/Cellar/sdl2_image/2.0.5/lib \
--L /usr/local/Cellar/sdl2_ttf/2.0.15/lib \
--L /usr/local/Cellar/sdl2_mixer/2.0.4/lib 
+-L /Users/nick/Downloads/code/sdl_and_lazyfoo_sdl_tutorials/lib/sdl2/2.0.14_1/lib/ \
+-L /Users/nick/Downloads/code/sdl_and_lazyfoo_sdl_tutorials/lib/sdl2_image/2.0.5/lib \
+-L /Users/nick/Downloads/code/sdl_and_lazyfoo_sdl_tutorials/lib/sdl2_ttf/2.0.15/lib \
+-L /Users/nick/Downloads/code/sdl_and_lazyfoo_sdl_tutorials/lib/sdl2_mixer/2.0.4/lib 
 
 
 # test:
