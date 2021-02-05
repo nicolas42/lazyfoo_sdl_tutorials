@@ -21,27 +21,40 @@ typedef struct strings {
 } strings;
 
 
-string make_string(size_t n);
-void free_string(string f);
+string make_string();
 string copy_string(string a);
-
-string read_file(const char *filename);
-
+void free_string(string f);
+string read_file (const char *filename);
+void add_to_string(string* a, const char *b);
 strings make_string_array();
 void free_string_array(strings f);
-void string_array_add(strings* f, char* a);
-
+strings add_to_string_array(strings f, char* a);
 double get_time(void);
 double min(double a, double b);
-int split_main(int argc, char** argv);
+double max(double a, double b);
+strings split_string(char *a, const char* split_chars);
+
+// string make_string();
+// void free_string(string f);
+// string copy_string(string a);
+// void add_to_string(string* a, const char *b);
+// string read_file(const char *filename);
+
+// strings make_string_array();
+// void free_string_array(strings f);
+// void add_to_string_array(strings* f, char* a);
+
+// double get_time(void);
+// double min(double a, double b);
+// int split_main(int argc, char** argv);
 
 
-string make_string(size_t n)
+string make_string()
 {
 	string f;
 	f.length = 0;
-	f.allocated = n;
-	f.data = (char*)malloc(n);
+	f.allocated = 100;
+	f.data = (char*)malloc(f.allocated * sizeof(char));
 	return f;
 }
 
@@ -50,7 +63,7 @@ string copy_string(string a)
 	string b;
 	b.length = a.length;
 	b.allocated = a.allocated;
-	b.data = (char*)malloc(b.allocated*sizeof(char));
+	b.data = (char*)malloc(b.allocated * sizeof(char));
 	strcpy(b.data, a.data);
 	return b;
 }
@@ -60,9 +73,11 @@ void free_string(string f)
 	free(f.data);
 }
 
+
+
 string read_file (const char *filename)
 {
-	string f = make_string(1000);
+	string f = make_string();
 
 	FILE *fp;
 	int c;
@@ -96,6 +111,22 @@ string read_file (const char *filename)
 	return f;
 }
 
+
+void add_to_string(string* a, const char *b)
+{
+	for (int i=0; i<strlen(b); i+=1){
+		a->data[a->length] = b[i];
+		a->length += 1;
+		// maybe grow
+		if (a->length == a->allocated){
+			a->allocated *= 2;
+			a->data = (char*)realloc(a->data, a->allocated*sizeof(char));
+		}
+
+	}
+
+}
+
 strings make_string_array()
 {
 	strings f;
@@ -110,17 +141,21 @@ void free_string_array(strings f)
 	free(f.data);
 }
 
-void string_array_add(strings* f, char* a)
+
+strings add_to_string_array(strings f, char* a)
 {
-	if (f->length == f->allocated){
-		f->allocated *= 2;
-		f->data = (char**)realloc(f->data, f->allocated*sizeof(char**));
+	if (f.length == f.allocated){
+		f.allocated *= 2;
+		f.data = (char**)realloc(f.data, f.allocated*sizeof(char*));
 		printf("GROW!!!\n");
 	}
 
-	f->data[f->length] = a;
-	f->length += 1;
+	f.data[f.length] = a;
+	f.length += 1;
+	return f;
 }
+
+
 
 
 double get_time(void)
@@ -136,29 +171,33 @@ double min(double a, double b)
 	return b;
 }
 
-strings split_string(string s, const char* split_chars)
+double max(double a, double b)
 {
-	// string c = copy_string(s);
-	char *a = s.data;
+	if (a > b ){
+		return a;
+	}
+	return b;
+}
+
+strings split_string(char *a, const char* split_chars)
+{
+	// char *a = s.data;
 	strings lines = make_string_array();
 
-	string_array_add(&lines, &(a[0]));
+	lines = add_to_string_array(lines, a);
 
-	size_t strlen_a = strlen(a);
-	// printf("strlen(a) %lu\n", strlen(a));
-
-	for (size_t i = 1; i < strlen_a; i++){
-
-		for (size_t j = 0; j < strlen(split_chars); j++)
-		{
-			if ( a[i] == split_chars[j] ){ a[i] = '\0'; break; }
+	for (size_t i = 1; i < strlen(a); i++){
+		for (size_t j = 0; j < strlen(split_chars); j++){
+			if ( a[i] == split_chars[j] ){ 
+				a[i] = '\0'; 
+				break; 
+			}
 		}
 	}
 
-	for (size_t i = 1; i < strlen_a; i++) {
-
+	for (size_t i = 1; i < strlen(a); i++) {
 		if (a[i-1] == '\0' && a[i] != '\0') {
-			string_array_add(&lines, &(a[i]));
+			lines = add_to_string_array(lines, a);
 		}
 	}
 

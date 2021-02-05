@@ -10,11 +10,19 @@
 /* limits.h defines "PATH_MAX". */
 #include <limits.h>
 
+#include <iostream>
+#include <string>
+#include <vector>
+
 /* List the files in "dir_name". */
 
-static void
-list_dir (const char * dir_name)
+
+void 
+list_dir (const char * dir_name, std::vector<std::string> *output)
 {
+    // std::vector<std::string> output;
+    std::string buff = "";
+
     DIR * d;
 
     /* Open the directory specified by "dir_name". */
@@ -40,14 +48,28 @@ list_dir (const char * dir_name)
         }
         d_name = entry->d_name;
         /* Print the name of the file and directory. */
-	printf ("%s/%s\n", dir_name, d_name);
+	// printf ("%s/%s\n", dir_name, d_name);
+
+    buff = "";
+    buff += dir_name;
+    buff += "/";
+    buff += d_name;
+    // buff += "\n";
+    output->push_back(buff);
 
 #if 0
 	/* If you don't want to print the directories, use the
 	   following line: */
 
         if (! (entry->d_type & DT_DIR)) {
-	    printf ("%s/%s\n", dir_name, d_name);
+	    // printf ("%s/%s\n", dir_name, d_name);
+
+        buff = "";
+        buff += dir_name;
+        buff += "/";
+        buff += d_name;
+        // buff += "\n";
+        output->push_back(buff);
 	}
 
 #endif /* 0 */
@@ -64,13 +86,20 @@ list_dir (const char * dir_name)
  
                 path_length = snprintf (path, PATH_MAX,
                                         "%s/%s", dir_name, d_name);
-                printf ("%s\n", path);
+                // printf ("%s\n", path);
+
+                buff = "";
+                buff += path;
+                // buff += "\n";
+                output->push_back(buff);
+
+
                 if (path_length >= PATH_MAX) {
                     fprintf (stderr, "Path length has got too long.\n");
                     exit (EXIT_FAILURE);
                 }
                 /* Recursively call "list_dir" with the new path. */
-                list_dir (path);
+                list_dir (path,output);
             }
 	}
     }
@@ -80,11 +109,21 @@ list_dir (const char * dir_name)
                  dir_name, strerror (errno));
         exit (EXIT_FAILURE);
     }
+
+
 }
 
-int list_dir_main (int argc, char **argv)
-{
-    char *dir = argv[1]; // "/Users/nick/Downloads";
-    list_dir(dir);
-    return 0;
-}
+// int list_dir_main (int argc, char **argv)
+// {
+//     // char *dir = argv[1]; // "/Users/nick/Downloads";
+//     const char *dir = "/Users/nick/Downloads";
+
+	// std::vector<std::string> files;
+	// list_dir("/Users/nick/Downloads", &files);
+	// for (auto f : files) {
+	// 	const char *extension = f.substr(f.find_last_of(".") + 1).c_str();
+	// 	if (strcmp(extension, "jpg")==0) std::cout << f << std::endl;
+	// 	// std::cout << extension << std::endl;
+	// 	// std::cout << f << std::endl;
+	// }
+// }
